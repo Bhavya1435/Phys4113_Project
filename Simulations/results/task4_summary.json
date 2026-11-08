@@ -1,0 +1,571 @@
+{
+  "parameters": {
+    "q": 1.0,
+    "m": 1.0,
+    "B0": 1.0,
+    "L": 10.0,
+    "r0": 3.0,
+    "vperp": 0.5,
+    "u0": 0.2,
+    "duration": 700.0,
+    "output_dt": 0.02,
+    "initial_phase_rad": 1.5707963267948966,
+    "initial_center": [
+      3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "runs": [
+    {
+      "rtol": 1e-08,
+      "atol": 1e-10,
+      "initial_phase_rad": 1.5707963267948966,
+      "initial_state": [
+        2.4840822224571286,
+        3.159085274455469e-17,
+        0.0,
+        3.061616997868383e-17,
+        0.5,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        0.0,
+        0.0
+      ],
+      "initial_particle_field": 0.9691466775603622,
+      "full_nfev": 18596,
+      "mu_initial": 0.12897944438571787,
+      "mu_average": 0.13180260774242789,
+      "mu_difference_relative_to_average": 0.02141963201689539,
+      "mu_difference_relative_to_initial": 0.021888475098925348,
+      "full_max_relative_energy_error": 4.6238924089614386e-07,
+      "full_final_azimuth": -0.8444576688793308,
+      "instantaneous": {
+        "mu": 0.12897944438571787,
+        "max_position_error": 1.5051539405352123,
+        "rms_position_error": 0.6456159636900468,
+        "final_azimuth": -0.8199262472540751,
+        "gc_max_relative_energy_error": 6.70620081688611e-09,
+        "nfev": 1409,
+        "max_cycle_mean_position_difference": 1.4752776666840661
+      },
+      "averaged": {
+        "mu": 0.13180260774242789,
+        "max_position_error": 0.11074081523277807,
+        "rms_position_error": 0.062237365052512844,
+        "final_azimuth": -0.8393164922416617,
+        "gc_max_relative_energy_error": 9.432620906579814e-09,
+        "nfev": 1394,
+        "max_cycle_mean_position_difference": 0.10525008323984934
+      },
+      "error_reduction_factor": 13.591681959098521,
+      "equation4": {
+        "correlation": 0.9956252733454236,
+        "fitted_slope": 1.2062372448470764,
+        "fitted_intercept": 0.0002338052255555996,
+        "lhs_peak_to_peak": 0.043689861584226275,
+        "rhs_peak_to_peak": 0.033048283564247445,
+        "rms_residual": 0.002011077101213973,
+        "max_absolute_residual": 0.005428787182440706,
+        "mean_residual": 0.00019381069635318433,
+        "lhs_first_harmonic_amplitude": 0.013444186503489854,
+        "rhs_first_harmonic_amplitude": 0.011459458629948412,
+        "first_harmonic_amplitude_ratio": 1.1731956052753234,
+        "first_harmonic_phase_difference_rad": 0.0008744325241432094,
+        "rms_residual_with_curvature_diagnostic": 0.00038415689003709115,
+        "rms_rhs_change_particle_vs_center": 0.002412415360356181
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.13180260774242789,
+          "complete_cycles_time": 0.13180350940248559,
+          "whole_orbit_uniform_phase": 0.13179029826697441,
+          "first_1_cycles_time": 0.13187836432027822,
+          "first_4_cycles_time": 0.13181296775704066,
+          "first_8_cycles_time": 0.13179203306311665
+        },
+        "complete_cycles": 114,
+        "complete_cycle_end_time": 697.4071803557968,
+        "cycle_time_mean_range": 0.00012991741393855727,
+        "cycle_phase_mean_range": 0.00010277812965608923
+      }
+    },
+    {
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "initial_phase_rad": 1.5707963267948966,
+      "initial_state": [
+        2.4840822224571286,
+        3.159085274455469e-17,
+        0.0,
+        3.061616997868383e-17,
+        0.5,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        0.0,
+        0.0
+      ],
+      "initial_particle_field": 0.9691466775603622,
+      "full_nfev": 32609,
+      "mu_initial": 0.12897944438571787,
+      "mu_average": 0.13180263634058306,
+      "mu_difference_relative_to_average": 0.021419844346435936,
+      "mu_difference_relative_to_initial": 0.021888696825381943,
+      "full_max_relative_energy_error": 2.7710691519189368e-09,
+      "full_final_azimuth": -0.8444578848028577,
+      "instantaneous": {
+        "mu": 0.12897944438571787,
+        "max_position_error": 1.5051671397276307,
+        "rms_position_error": 0.6456205362816966,
+        "final_azimuth": -0.8199262452074094,
+        "gc_max_relative_energy_error": 7.777822830234982e-11,
+        "nfev": 2282,
+        "max_cycle_mean_position_difference": 1.4752911952530734
+      },
+      "averaged": {
+        "mu": 0.13180263634058306,
+        "max_position_error": 0.11074100847833276,
+        "rms_position_error": 0.06223653531369976,
+        "final_azimuth": -0.8393167042611225,
+        "gc_max_relative_energy_error": 7.895406550773032e-11,
+        "nfev": 2270,
+        "max_cycle_mean_position_difference": 0.10525026060580889
+      },
+      "error_reduction_factor": 13.591777431051,
+      "equation4": {
+        "correlation": 0.9956252631201952,
+        "fitted_slope": 1.2062370292897433,
+        "fitted_intercept": 0.00023380537330822351,
+        "lhs_peak_to_peak": 0.04369013777747477,
+        "rhs_peak_to_peak": 0.03304828464706061,
+        "rms_residual": 0.002011076251277374,
+        "max_absolute_residual": 0.005428849963335421,
+        "mean_residual": 0.0001938108535214698,
+        "lhs_first_harmonic_amplitude": 0.013444186628522653,
+        "rhs_first_harmonic_amplitude": 0.01145946033892502,
+        "first_harmonic_amplitude_ratio": 1.1731954412247492,
+        "first_harmonic_phase_difference_rad": 0.0008744623585759115,
+        "rms_residual_with_curvature_diagnostic": 0.0003841583970547811,
+        "rms_rhs_change_particle_vs_center": 0.002412415944104167
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.13180263634058306,
+          "complete_cycles_time": 0.13180353791874183,
+          "whole_orbit_uniform_phase": 0.13179032681641895,
+          "first_1_cycles_time": 0.13187836465548558,
+          "first_4_cycles_time": 0.1318129689698652,
+          "first_8_cycles_time": 0.13179203525899422
+        },
+        "complete_cycles": 114,
+        "complete_cycle_end_time": 697.4071863659753,
+        "cycle_time_mean_range": 0.00012993571098190992,
+        "cycle_phase_mean_range": 0.00010279100401644481
+      }
+    },
+    {
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "initial_phase_rad": 1.5707963267948966,
+      "initial_state": [
+        2.4840822224571286,
+        3.159085274455469e-17,
+        0.0,
+        3.061616997868383e-17,
+        0.5,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        0.0,
+        0.0
+      ],
+      "initial_particle_field": 0.9691466775603622,
+      "full_nfev": 58025,
+      "mu_initial": 0.12897944438571787,
+      "mu_average": 0.13180263650077267,
+      "mu_difference_relative_to_average": 0.021419845535777658,
+      "mu_difference_relative_to_initial": 0.021888698067359783,
+      "full_max_relative_energy_error": 1.8090862141662e-11,
+      "full_final_azimuth": -0.8444578860341009,
+      "instantaneous": {
+        "mu": 0.12897944438571787,
+        "max_position_error": 1.5051672160415606,
+        "rms_position_error": 0.6456205631303493,
+        "final_azimuth": -0.8199262452122836,
+        "gc_max_relative_energy_error": 8.142375662600898e-13,
+        "nfev": 3551,
+        "max_cycle_mean_position_difference": 1.475291273234043
+      },
+      "averaged": {
+        "mu": 0.13180263650077267,
+        "max_position_error": 0.11074101085431821,
+        "rms_position_error": 0.062236531227295014,
+        "final_azimuth": -0.8393167054627373,
+        "gc_max_relative_energy_error": 7.881473251813986e-13,
+        "nfev": 3566,
+        "max_cycle_mean_position_difference": 0.10525026249144097
+      },
+      "error_reduction_factor": 13.59177782855563,
+      "equation4": {
+        "correlation": 0.9956252630605634,
+        "fitted_slope": 1.2062370277693535,
+        "fitted_intercept": 0.00023380537404285633,
+        "lhs_peak_to_peak": 0.04369013902664087,
+        "rhs_peak_to_peak": 0.03304828465045094,
+        "rms_residual": 0.0020110762442111718,
+        "max_absolute_residual": 0.005428850019769459,
+        "mean_residual": 0.00019381085437597474,
+        "lhs_first_harmonic_amplitude": 0.013444186626006539,
+        "rhs_first_harmonic_amplitude": 0.011459460348610858,
+        "first_harmonic_amplitude_ratio": 1.173195440013567,
+        "first_harmonic_phase_difference_rad": 0.0008744626830190505,
+        "rms_residual_with_curvature_diagnostic": 0.0003841584056228466,
+        "rms_rhs_change_particle_vs_center": 0.002412415947384567
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.13180263650077267,
+          "complete_cycles_time": 0.13180353807850848,
+          "whole_orbit_uniform_phase": 0.13179032697640028,
+          "first_1_cycles_time": 0.13187836465815492,
+          "first_4_cycles_time": 0.13181296897837205,
+          "first_8_cycles_time": 0.1317920352734146
+        },
+        "complete_cycles": 114,
+        "complete_cycle_end_time": 697.4071863980266,
+        "cycle_time_mean_range": 0.00012993587819573604,
+        "cycle_phase_mean_range": 0.0001027911712398466
+      }
+    }
+  ],
+  "convergence": {
+    "max_full_state_change": 7.980993326633934e-08,
+    "max_extracted_center_change": 7.831098135559995e-08,
+    "max_instant_gc_state_change": 1.1082357254110775e-09,
+    "max_averaged_gc_state_change": 8.127944017832789e-08,
+    "mu_average_change": 1.6018961157548972e-10,
+    "instant_max_error_change": 7.631392984208674e-08,
+    "averaged_max_error_change": 2.375985450053797e-09,
+    "full_final_azimuth_change": 1.2312432184913291e-09
+  },
+  "sampling": {
+    "refined_dt": 0.01,
+    "refined_mu_average": 0.13180263650077384,
+    "mu_average_change": 1.1657341758564144e-15
+  },
+  "averaging_sensitivity": [
+    {
+      "convention": "whole_orbit_time",
+      "mu": 0.13180263650077267,
+      "max_position_error": 0.11074101085431821,
+      "rms_position_error": 0.062236531227295014,
+      "final_azimuth": -0.8393167054627373,
+      "gc_max_relative_energy_error": 7.881473251813986e-13,
+      "nfev": 3566
+    },
+    {
+      "convention": "complete_cycles_time",
+      "mu": 0.13180353807850848,
+      "max_position_error": 0.11035993448709817,
+      "rms_position_error": 0.06213222307436761,
+      "final_azimuth": -0.8393234344577826,
+      "gc_max_relative_energy_error": 7.877032359715486e-13,
+      "nfev": 3578
+    },
+    {
+      "convention": "whole_orbit_uniform_phase",
+      "mu": 0.13179032697640028,
+      "max_position_error": 0.11595010494528656,
+      "rms_position_error": 0.0637026929707128,
+      "final_azimuth": -0.8392248692496789,
+      "gc_max_relative_energy_error": 7.883693697863237e-13,
+      "nfev": 3566
+    },
+    {
+      "convention": "first_1_cycles_time",
+      "mu": 0.13187836465815492,
+      "max_position_error": 0.08336534753002943,
+      "rms_position_error": 0.0551898220690012,
+      "final_azimuth": -0.8398831937845722,
+      "gc_max_relative_energy_error": 7.841505222927481e-13,
+      "nfev": 3554
+    },
+    {
+      "convention": "first_4_cycles_time",
+      "mu": 0.13181296897837205,
+      "max_position_error": 0.10637761831398815,
+      "rms_position_error": 0.061067365762229806,
+      "final_azimuth": -0.839393844804133,
+      "gc_max_relative_energy_error": 7.877032359715486e-13,
+      "nfev": 3566
+    },
+    {
+      "convention": "first_8_cycles_time",
+      "mu": 0.1317920352734146,
+      "max_position_error": 0.11522640609741372,
+      "rms_position_error": 0.06349464327254514,
+      "final_azimuth": -0.8392376100332901,
+      "gc_max_relative_energy_error": 7.87592213669086e-13,
+      "nfev": 3566
+    }
+  ],
+  "gyrophase_sensitivity": [
+    {
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "initial_phase_rad": -1.5707963267948966,
+      "initial_state": [
+        3.533288182686774,
+        3.265448329752332e-17,
+        0.0,
+        3.061616997868383e-17,
+        -0.5,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        -6.162975822039155e-33,
+        0.0
+      ],
+      "initial_particle_field": 0.9375793730904299,
+      "full_nfev": 32831,
+      "mu_initial": 0.13332204567169342,
+      "mu_average": 0.1303786238799449,
+      "mu_difference_relative_to_average": -0.02257595381938444,
+      "mu_difference_relative_to_initial": -0.02207753246598637,
+      "full_max_relative_energy_error": 2.781821106800919e-09,
+      "full_final_azimuth": -0.826209242027001,
+      "instantaneous": {
+        "mu": 0.13332204567169342,
+        "max_position_error": 1.5330369441070284,
+        "rms_position_error": 0.658991291161169,
+        "final_azimuth": -0.8511734752524998,
+        "gc_max_relative_energy_error": 7.713885086246819e-11,
+        "nfev": 2321,
+        "max_cycle_mean_position_difference": 1.5083026134554451
+      },
+      "averaged": {
+        "mu": 0.1303786238799449,
+        "max_position_error": 0.0674218775080205,
+        "rms_position_error": 0.04213846550408694,
+        "final_azimuth": -0.8291377735001871,
+        "gc_max_relative_energy_error": 7.300915427777e-11,
+        "nfev": 2306,
+        "max_cycle_mean_position_difference": 0.06560701289599866
+      },
+      "error_reduction_factor": 22.737974686698074,
+      "equation4": {
+        "correlation": 0.9951641943916707,
+        "fitted_slope": 1.2270480049645505,
+        "fitted_intercept": 0.0002419060971020924,
+        "lhs_peak_to_peak": 0.044294642527890615,
+        "rhs_peak_to_peak": 0.032862740957441836,
+        "rms_residual": 0.002143527576368963,
+        "max_absolute_residual": 0.005823445462731794,
+        "mean_residual": 0.00019722697004184072,
+        "lhs_first_harmonic_amplitude": 0.013164318101758618,
+        "rhs_first_harmonic_amplitude": 0.011074049087352891,
+        "first_harmonic_amplitude_ratio": 1.1887538151508572,
+        "first_harmonic_phase_difference_rad": 0.0009862234171239973,
+        "rms_residual_with_curvature_diagnostic": 0.00039810636488930097,
+        "rms_rhs_change_particle_vs_center": 0.0023509799481098792
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.1303786238799449,
+          "complete_cycles_time": 0.13037731251556162,
+          "whole_orbit_uniform_phase": 0.13036440547180578,
+          "first_1_cycles_time": 0.1303926287734066,
+          "first_4_cycles_time": 0.13038320874309872,
+          "first_8_cycles_time": 0.13037345414864773
+        },
+        "complete_cycles": 115,
+        "complete_cycle_end_time": 699.3137024202308,
+        "cycle_time_mean_range": 4.80202896860904e-05,
+        "cycle_phase_mean_range": 3.256363745901547e-05
+      }
+    },
+    {
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "initial_phase_rad": 0.0,
+      "initial_state": [
+        3.0,
+        0.5243148551564275,
+        0.0,
+        0.5,
+        0.0,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        -6.661338147750939e-16,
+        0.0
+      ],
+      "initial_particle_field": 0.9536254696633115,
+      "full_nfev": 32627,
+      "mu_initial": 0.13107871378910704,
+      "mu_average": 0.13109414699227265,
+      "mu_difference_relative_to_average": 0.00011772610387032994,
+      "mu_difference_relative_to_initial": 0.00011773996493767189,
+      "full_max_relative_energy_error": 2.788685726784479e-09,
+      "full_final_azimuth": -0.8350956394492572,
+      "instantaneous": {
+        "mu": 0.13107871378910704,
+        "max_position_error": 0.016732784509706815,
+        "rms_position_error": 0.009306120572104185,
+        "final_azimuth": -0.8340316488925115,
+        "gc_max_relative_energy_error": 7.619527231383927e-11,
+        "nfev": 2294,
+        "max_cycle_mean_position_difference": 0.013235716797828511
+      },
+      "averaged": {
+        "mu": 0.13109414699227265,
+        "max_position_error": 0.01650290379720493,
+        "rms_position_error": 0.009124544896751624,
+        "final_azimuth": -0.8341418910227218,
+        "gc_max_relative_energy_error": 7.599354479026488e-11,
+        "nfev": 2294,
+        "max_cycle_mean_position_difference": 0.012765818078628609
+      },
+      "error_reduction_factor": 1.0139297129357816,
+      "equation4": {
+        "correlation": 0.9954111060432659,
+        "fitted_slope": 1.2162070427879124,
+        "fitted_intercept": 0.00021234983414525905,
+        "lhs_peak_to_peak": 0.043912990316514855,
+        "rhs_peak_to_peak": 0.032904407338436345,
+        "rms_residual": 0.0020695871264073975,
+        "max_absolute_residual": 0.0055831554046079715,
+        "mean_residual": 0.00017456633688235024,
+        "lhs_first_harmonic_amplitude": 0.01329224865179505,
+        "rhs_first_harmonic_amplitude": 0.01125721800103833,
+        "first_harmonic_amplitude_ratio": 1.1807756277411536,
+        "first_harmonic_phase_difference_rad": 0.0007154697137132793,
+        "rms_residual_with_curvature_diagnostic": 0.0003769770584187965,
+        "rms_rhs_change_particle_vs_center": 0.0023813418839254375
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.13109414699227265,
+          "complete_cycles_time": 0.1310930547960739,
+          "whole_orbit_uniform_phase": 0.13107961522701608,
+          "first_1_cycles_time": 0.13119982936965646,
+          "first_4_cycles_time": 0.13118357419293172,
+          "first_8_cycles_time": 0.1311052246765548
+        },
+        "complete_cycles": 114,
+        "complete_cycle_end_time": 695.343079448717,
+        "cycle_time_mean_range": 0.0002621018293149646,
+        "cycle_phase_mean_range": 0.00022599864878072862
+      }
+    },
+    {
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "initial_phase_rad": 3.141592653589793,
+      "initial_state": [
+        3.0,
+        -0.5243148551564275,
+        0.0,
+        -0.5,
+        6.123233995736766e-17,
+        0.2
+      ],
+      "initial_center": [
+        3.0,
+        6.661338147750939e-16,
+        0.0
+      ],
+      "initial_particle_field": 0.9536254696633115,
+      "full_nfev": 32642,
+      "mu_initial": 0.13107871378910704,
+      "mu_average": 0.13108661460076854,
+      "mu_difference_relative_to_average": 6.027168895585183e-05,
+      "mu_difference_relative_to_initial": 6.027532185130216e-05,
+      "full_max_relative_energy_error": 2.792263309459031e-09,
+      "full_final_azimuth": -0.8348155032031371,
+      "instantaneous": {
+        "mu": 0.13107871378910704,
+        "max_position_error": 0.030051773637041958,
+        "rms_position_error": 0.01366358810691072,
+        "final_azimuth": -0.8340316488925115,
+        "gc_max_relative_energy_error": 7.619527231383927e-11,
+        "nfev": 2294,
+        "max_cycle_mean_position_difference": 0.02407632700518439
+      },
+      "averaged": {
+        "mu": 0.13108661460076854,
+        "max_position_error": 0.02614331011431705,
+        "rms_position_error": 0.01234822128917758,
+        "final_azimuth": -0.8340880727945247,
+        "gc_max_relative_energy_error": 7.610834185101112e-11,
+        "nfev": 2294,
+        "max_cycle_mean_position_difference": 0.020750666590740853
+      },
+      "error_reduction_factor": 1.1495014787964624,
+      "equation4": {
+        "correlation": 0.9953894908029342,
+        "fitted_slope": 1.2163056311193134,
+        "fitted_intercept": 0.0002651274147337971,
+        "lhs_peak_to_peak": 0.04391524052583229,
+        "rhs_peak_to_peak": 0.03290433839319139,
+        "rms_residual": 0.0020749018290791683,
+        "max_absolute_residual": 0.005641901049997129,
+        "mean_residual": 0.00021801102760225482,
+        "lhs_first_harmonic_amplitude": 0.013290178930989861,
+        "rhs_first_harmonic_amplitude": 0.011253243174907487,
+        "first_harmonic_amplitude_ratio": 1.181008774485949,
+        "first_harmonic_phase_difference_rad": 0.0007614758679399536,
+        "rms_residual_with_curvature_diagnostic": 0.0004058997075576562,
+        "rms_rhs_change_particle_vs_center": 0.0023805543163676825
+      },
+      "averaging": {
+        "alternatives": {
+          "whole_orbit_time": 0.13108661460076854,
+          "complete_cycles_time": 0.1310878367209053,
+          "whole_orbit_uniform_phase": 0.13107519285822047,
+          "first_1_cycles_time": 0.13106377439556327,
+          "first_4_cycles_time": 0.13101144959914812,
+          "first_8_cycles_time": 0.13106143447986374
+        },
+        "complete_cycles": 114,
+        "complete_cycle_end_time": 695.3151332278917,
+        "cycle_time_mean_range": 0.0002620400058963024,
+        "cycle_phase_mean_range": 0.00022585887840831376
+      }
+    }
+  ],
+  "parallel_speed_control": {
+    "initial_u": 0.0,
+    "duration": 80.0,
+    "mu_average": 0.13112156086989984,
+    "equation4": {
+      "correlation": 0.9999913350512978,
+      "fitted_slope": 1.004472510108298,
+      "fitted_intercept": -0.00012480223229899737,
+      "lhs_peak_to_peak": 0.03310765790605541,
+      "rhs_peak_to_peak": 0.03295740792116249,
+      "rms_residual": 0.00014340307532539174,
+      "max_absolute_residual": 0.00020280206486248883,
+      "mean_residual": -0.00012426222642526207,
+      "lhs_first_harmonic_amplitude": 0.016556972069696474,
+      "rhs_first_harmonic_amplitude": 0.016483535466679775,
+      "first_harmonic_amplitude_ratio": 1.0044551487855955,
+      "first_harmonic_phase_difference_rad": -4.271250020337902e-12,
+      "rms_residual_with_curvature_diagnostic": 0.00014340307532539174,
+      "rms_rhs_change_particle_vs_center": 0.0030287007503085866
+    }
+  },
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "1.26.4",
+    "scipy": "1.16.3",
+    "matplotlib": "3.10.7"
+  }
+}
