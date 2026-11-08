@@ -1,0 +1,485 @@
+{
+  "duration": 3600.0,
+  "escaped_angle_deg": 35.22296874999999,
+  "bouncing_angle_deg": 35.223046874999994,
+  "width_deg": 7.81250000017053e-05,
+  "unresolved_midpoint": null,
+  "midpoint_shift_from_theory_deg": -0.04138187025466067,
+  "records": [
+    {
+      "angle_deg": 35.22,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "escaped",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.28835875921228626,
+        0.0,
+        0.40847181785963
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767175184245725,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 436.5599940503635,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": 547.8980248769295,
+      "reversal_count": 0,
+      "turning_times": [],
+      "turning_z": [],
+      "max_relative_energy_error": 5.3045789982775204e-11,
+      "mu_relative_peak_to_peak": 0.0042276601585068425,
+      "nfev": 398975
+    },
+    {
+      "angle_deg": 35.2225,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "escaped",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.2883765818830915,
+        0.0,
+        0.4084592354463596
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.576753163766183,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 323.1176519483243,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": 635.6813615129506,
+      "reversal_count": 0,
+      "turning_times": [],
+      "turning_z": [],
+      "max_relative_energy_error": 5.56000800955303e-11,
+      "mu_relative_peak_to_peak": 0.004216312547750353,
+      "nfev": 415073
+    },
+    {
+      "angle_deg": 35.222812499999996,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "escaped",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.28837880967833934,
+        0.0,
+        0.4084576625900218
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767576193566787,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 314.6211370468427,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": 683.7572540335041,
+      "reversal_count": 0,
+      "turning_times": [],
+      "turning_z": [],
+      "max_relative_energy_error": 5.610889530771601e-11,
+      "mu_relative_peak_to_peak": 0.004224577957112053,
+      "nfev": 415295
+    },
+    {
+      "angle_deg": 35.22296874999999,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "escaped",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.2883799235727462,
+        0.0,
+        0.4084568761572965
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767598471454924,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 313.73519971462446,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": 771.7484263781497,
+      "reversal_count": 0,
+      "turning_times": [],
+      "turning_z": [],
+      "max_relative_energy_error": 5.586742179986004e-11,
+      "mu_relative_peak_to_peak": 0.004217657637086959,
+      "nfev": 415310
+    },
+    {
+      "angle_deg": 35.223046874999994,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "bouncing_observed",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.28838048051914544,
+        0.0,
+        0.4084564829397947
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767609610382909,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 62.75718705731594,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": null,
+      "reversal_count": 2,
+      "turning_times": [
+        750.8704724325776,
+        2254.523629106691
+      ],
+      "turning_z": [
+        125.58901613759083,
+        0.07466601447992575
+      ],
+      "max_relative_energy_error": 5.6214477517357864e-11,
+      "mu_relative_peak_to_peak": 0.004221711425912946,
+      "nfev": 415322
+    },
+    {
+      "angle_deg": 35.223124999999996,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "bouncing_observed",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.2883810374650085,
+        0.0,
+        0.4084560897215334
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.576762074930017,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 62.71003271095595,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": null,
+      "reversal_count": 3,
+      "turning_times": [
+        703.7926251622264,
+        2111.219331565377,
+        3516.99313431188
+      ],
+      "turning_z": [
+        125.54187470014884,
+        0.12182036083991075,
+        125.54188414170869
+      ],
+      "max_relative_energy_error": 5.631317634424704e-11,
+      "mu_relative_peak_to_peak": 0.004228895232483446,
+      "nfev": 415295
+    },
+    {
+      "angle_deg": 35.223749999999995,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "bouncing_observed",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.2883854930126107,
+        0.0,
+        0.4084529439481046
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767709860252214,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 62.53359405497281,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": null,
+      "reversal_count": 3,
+      "turning_times": [
+        615.9575532861331,
+        1847.8474546659493,
+        3079.6083118695924
+      ],
+      "turning_z": [
+        125.36544712676867,
+        0.29825962291262786,
+        125.36544056909544
+      ],
+      "max_relative_energy_error": 5.447065021257913e-11,
+      "mu_relative_peak_to_peak": 0.004213707329559663,
+      "nfev": 413168
+    },
+    {
+      "angle_deg": 35.224999999999994,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "bouncing_observed",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.28839440400486854,
+        0.0,
+        0.4084466522554404
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5767888080097371,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 62.34483568241393,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": null,
+      "reversal_count": 3,
+      "turning_times": [
+        567.092535406067,
+        1702.6067195976593,
+        2838.2613759294018
+      ],
+      "turning_z": [
+        125.17665289671065,
+        0.48703462518710683,
+        125.17668875420979
+      ],
+      "max_relative_energy_error": 5.1271209500214354e-11,
+      "mu_relative_peak_to_peak": 0.004215653709071347,
+      "nfev": 399215
+    },
+    {
+      "angle_deg": 35.23,
+      "duration": 3600.0,
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "convention": "particle_axis",
+      "classification": "bouncing_observed",
+      "analytical_trapped": false,
+      "initial_state": [
+        0.0,
+        0.0,
+        62.83185307179586,
+        0.2884300466012018,
+        0.0,
+        0.40842148354075175
+      ],
+      "initial_local_center": [
+        0.0,
+        -0.5768600932024036,
+        62.83185307179586
+      ],
+      "max_axial_excursion": 61.920795094324646,
+      "theory_turning_excursion": null,
+      "first_barrier_crossing": null,
+      "reversal_count": 4,
+      "turning_times": [
+        506.8012522442081,
+        1518.4552381384576,
+        2532.0142373530202,
+        3543.84796568861
+      ],
+      "turning_z": [
+        124.75263394599548,
+        0.9110948488586281,
+        124.75264816612051,
+        0.91112291404684
+      ],
+      "max_relative_energy_error": 5.3805848665433587e-11,
+      "mu_relative_peak_to_peak": 0.004227848290827742,
+      "nfev": 398843
+    }
+  ],
+  "convergence": [
+    {
+      "angle_deg": 35.22296874999999,
+      "loose": {
+        "angle_deg": 35.22296874999999,
+        "duration": 3600.0,
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "convention": "particle_axis",
+        "classification": "escaped",
+        "analytical_trapped": false,
+        "initial_state": [
+          0.0,
+          0.0,
+          62.83185307179586,
+          0.2883799235727462,
+          0.0,
+          0.4084568761572965
+        ],
+        "initial_local_center": [
+          0.0,
+          -0.5767598471454924,
+          62.83185307179586
+        ],
+        "max_axial_excursion": 313.7353776147985,
+        "theory_turning_excursion": null,
+        "first_barrier_crossing": 771.741281055388,
+        "reversal_count": 0,
+        "turning_times": [],
+        "turning_z": [],
+        "max_relative_energy_error": 9.72752745020955e-09,
+        "mu_relative_peak_to_peak": 0.004219204247973391,
+        "nfev": 252584
+      },
+      "tight": {
+        "angle_deg": 35.22296874999999,
+        "duration": 3600.0,
+        "rtol": 1e-12,
+        "atol": 1e-14,
+        "convention": "particle_axis",
+        "classification": "escaped",
+        "analytical_trapped": false,
+        "initial_state": [
+          0.0,
+          0.0,
+          62.83185307179586,
+          0.2883799235727462,
+          0.0,
+          0.4084568761572965
+        ],
+        "initial_local_center": [
+          0.0,
+          -0.5767598471454924,
+          62.83185307179586
+        ],
+        "max_axial_excursion": 313.73519971462446,
+        "theory_turning_excursion": null,
+        "first_barrier_crossing": 771.7484263781497,
+        "reversal_count": 0,
+        "turning_times": [],
+        "turning_z": [],
+        "max_relative_energy_error": 5.586742179986004e-11,
+        "mu_relative_peak_to_peak": 0.004217657637086959,
+        "nfev": 415310
+      },
+      "max_state_change": 0.023418210936026584,
+      "excursion_change": 0.0001779001740374042,
+      "crossing_time_change": 0.007145322761743955
+    },
+    {
+      "angle_deg": 35.223046874999994,
+      "loose": {
+        "angle_deg": 35.223046874999994,
+        "duration": 3600.0,
+        "rtol": 1e-10,
+        "atol": 1e-12,
+        "convention": "particle_axis",
+        "classification": "bouncing_observed",
+        "analytical_trapped": false,
+        "initial_state": [
+          0.0,
+          0.0,
+          62.83185307179586,
+          0.28838048051914544,
+          0.0,
+          0.4084564829397947
+        ],
+        "initial_local_center": [
+          0.0,
+          -0.5767609610382909,
+          62.83185307179586
+        ],
+        "max_axial_excursion": 62.7571942204599,
+        "theory_turning_excursion": null,
+        "first_barrier_crossing": null,
+        "reversal_count": 2,
+        "turning_times": [
+          750.8736779839604,
+          2254.5331215176934
+        ],
+        "turning_z": [
+          125.58901971655108,
+          0.07465885133595948
+        ],
+        "max_relative_energy_error": 9.740350415121668e-09,
+        "mu_relative_peak_to_peak": 0.004221095953933913,
+        "nfev": 252584
+      },
+      "tight": {
+        "angle_deg": 35.223046874999994,
+        "duration": 3600.0,
+        "rtol": 1e-12,
+        "atol": 1e-14,
+        "convention": "particle_axis",
+        "classification": "bouncing_observed",
+        "analytical_trapped": false,
+        "initial_state": [
+          0.0,
+          0.0,
+          62.83185307179586,
+          0.28838048051914544,
+          0.0,
+          0.4084564829397947
+        ],
+        "initial_local_center": [
+          0.0,
+          -0.5767609610382909,
+          62.83185307179586
+        ],
+        "max_axial_excursion": 62.75718705731594,
+        "theory_turning_excursion": null,
+        "first_barrier_crossing": null,
+        "reversal_count": 2,
+        "turning_times": [
+          750.8704724325776,
+          2254.523629106691
+        ],
+        "turning_z": [
+          125.58901613759083,
+          0.07466601447992575
+        ],
+        "max_relative_energy_error": 5.6214477517357864e-11,
+        "mu_relative_peak_to_peak": 0.004221711425912946,
+        "nfev": 415322
+      },
+      "max_state_change": 0.016312530042736917,
+      "excursion_change": 7.1631439624297855e-06,
+      "crossing_time_change": null
+    }
+  ],
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "1.26.4",
+    "scipy": "1.16.3",
+    "matplotlib": "3.10.7"
+  }
+}
