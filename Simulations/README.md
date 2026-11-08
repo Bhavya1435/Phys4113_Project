@@ -1,11 +1,11 @@
-# PHY4113 numerical simulations: Tasks 1, 2, 3, and 5
+# PHY4113 numerical simulations: Tasks 1–5
 
 These scripts solve the full nonrelativistic Lorentz equations and compare
 measurements with the leading guiding-center predictions in the professor's
 *Charged Particles in Magnetic Fields — Adiabatic Invariants and Guiding-Center
-Theory* project description. Tasks 1–3 use equations (1)–(4), and Task 5 also
+Theory* project description. Tasks 1–4 use equations (1)–(4), and Task 5 also
 uses equation (5). The course PDF is
-read locally and is not redistributed. Task 4 is not implemented; Task 6
+read locally and is not redistributed. All five computational tasks are implemented; Task 6
 and the project's theoretical derivations remain the partner's responsibility.
 
 OpenAI Codex was used to assist in writing, debugging, and validating the
@@ -22,8 +22,10 @@ python Simulations/01_particle_drifts.py
 python Simulations/02_magnetic_bottle.py
 python Simulations/validate.py
 python Simulations/03_loss_cone.py
+python Simulations/04_guiding_center.py
 python Simulations/05_penning_trap_bhavya.py
 python Simulations/validate_tasks_3_5.py
+python Simulations/validate_task_4.py
 ```
 
 Each task reruns all three tolerance settings, overwrites its own generated
@@ -636,8 +638,323 @@ scripts additionally check conservation and convergence of the measured cases.
 These additions also used OpenAI Codex for code writing, debugging, physical
 checks, and documentation. All listed simulated results come from executed
 integrations or numerical matrix calculations. The professor's approximate
-benchmarks are comparisons, not substituted outputs. Task 4 and the partner's
-theoretical material are untouched. The local branch `simulations-tasks-3-5`
+benchmarks are comparisons, not substituted outputs. The partner's
+theoretical material is untouched. The branch `simulations-tasks-3-5`
 was created from synchronized main. Its pull request is intended for independent
 review of the equations, numerical methods, physical accuracy, figures, and
 benchmark comparisons before merging. Merging requires separate authorization.
+
+## Task 4: off-axis first-order guiding-center theory
+
+`04_guiding_center.py` compares the full Lorentz orbit in the Task 2 vacuum
+bottle with the professor's Equation (3), separately using the initial
+instantaneous moment and an empirical gyro-time-averaged moment. Task 4 was
+started from updated main after verifying PR #2 was merged. Existing numerical
+code, data, figures, and both Penning implementations are preserved. No
+Lie-transform generator or Task 6 calculation is implemented.
+
+### Field geometry and equations
+
+The full orbit reuses `common.bottle_field` and `common.integrate`. With
+`J_ij=∂B_i/∂x_j`, the analytical Jacobian is
+
+\[
+J=\frac{B_0}{L^2}
+\begin{pmatrix}-z&0&-x\\0&-z&-y\\-x&-y&2z\end{pmatrix}.
+\]
+
+The strength, unit direction, gradient, and curvature use the **full vector
+field**, including its transverse components:
+
+\[
+B=|\mathbf B|,\quad\mathbf b=\mathbf B/B,\quad
+\nabla B=J^T\mathbf b,\quad
+\kappa=\frac{J\mathbf b-\mathbf b(\mathbf b\cdot J\mathbf b)}B.
+\]
+
+Analytical J, ∇B, and κ are checked against centered numerical derivatives at
+several off-axis and on-axis positions. A separate exact circular-drift test
+at Z=u=0 verifies the sign and magnitude of the grad-B term. At (3,0,0),
+`B=0.955`, `∇B=(-0.03,0,0)`, and `κ=(-0.03/0.955,0,0)`. The curvature
+contribution makes the azimuthal drift more negative for these parameters.
+
+The four-component guiding-center state is `(X,Y,Z,u)` and obeys the supplied
+equations for static E=0:
+
+\[
+\dot{\mathbf X}=u\mathbf b+
+\frac{\mathbf b\times(\bar\mu\nabla B+mu^2\kappa)}{qB},\qquad
+\dot u=-\frac{\bar\mu}{m}\mathbf b\cdot\nabla B.
+\]
+
+Each run holds its chosen μbar constant. DOP853 integrates the full and reduced
+models at all three established tolerance pairs. The full orbit conserves K;
+the reduced models monitor their own `H_GC=m u²/2+μbar B(X)`. Those initial
+reduced energies differ between moment choices and need not equal the full
+particle energy under a truncated coordinate transformation. In this
+axisymmetric bottle the perpendicular drift is azimuthal, so it contributes
+no work against ∇B, making H_GC conserved by the stated equations.
+
+### Initial state, gyroframe, and extracted center
+
+Use q=m=B0=1, L=10, perpendicular speed 0.5, parallel speed 0.2,
+`X0=(3,0,0)`, and duration 700. At z=0 the field is vertical. The principal
+gyrophase has velocity `(0,+0.5,+0.2)`, with the particle initially inward of
+its center. The code numerically inverts the same local center map used for
+all comparisons:
+
+\[
+\mathbf X_{loc}=\mathbf x+\frac{m\mathbf v\times\mathbf B(\mathbf x)}{qB(\mathbf x)^2}.
+\]
+
+For the principal phase this requires
+`x+0.5/[1−x²/(2L²)]=3`, giving
+`x0=2.4840822224571286`, y0=z0=0 to floating-point precision. Thus the
+**initial extracted guiding center**, rather than the physical particle,
+is exactly (3,0,0). Its initial field strength is 0.9691466775603622,
+and full K(0)=0.145. General initial velocity phases 0, π/2, π, and −π/2
+are initialized by the same implicit inverse map, preserving the prescribed
+local parallel/perpendicular speeds and X0.
+
+The displacement is `ρ=x−X_loc`; its magnitude is `m v_perp/(|q|B)` at the
+particle. This map removes the leading gyration but retains higher-order
+gyrophase ripple and coordinate error. The reported trajectory errors include
+both reduced-dynamics truncation and this local-coordinate convention.
+The rapidly gyrating particle position is **not** the position-error reference.
+
+A right-handed perpendicular frame is anchored to the extracted center's
+radial direction: project that direction perpendicular to B(x), normalize it
+to e1, and set e2=b×e1. The velocity gyrophase is
+`θ=unwrap(atan2(v_perp·e2,v_perp·e1))`; progress `ψ=θ(0)−θ(t)` increases for
+positive qB and is explicitly checked to be monotone. Anchoring the frame to
+the center avoids a spurious fast rotation from the particle's own cylindrical
+azimuth. Azimuthal drift is separately measured as
+`unwrap(atan2(Y,X))−φ(0)` for each center trajectory.
+
+### Magnetic moments and averaging convention
+
+The instantaneous moment uses local **B magnitude and direction**:
+`u=v·b`, `v_perp=v−u b`, `μinst=m|v_perp|²/(2B)`.
+The primary averaged constant is the empirical whole-orbit time mean
+
+\[
+\bar\mu_t=\frac1{700}\int_0^{700}\mu_{inst}(t)\,dt.
+\]
+
+It averages approximately 114 gyroperiods and several bounces. A cubic
+interpolant through the 0.02-spaced output samples is integrated directly;
+neither a fitted trajectory nor a professor-provided moment is used. This
+postprocessed value uses the reference orbit itself as calibration. It is
+not an independently predicted, exact all-orders adiabatic invariant.
+
+The finite-interval convention is important. Alternatives include a time
+mean over only complete gyrocycles, time means over the first 1/4/8 cycles,
+and a **uniform-gyrophase** mean `∫μ dψ/Δψ` over all complete cycles.
+Uniform time and uniform phase weights differ when the angular speed varies.
+There are 114 complete cycles ending at t=697.4071863980. Cycle time means
+have a peak-to-peak range of 1.29936e−4, showing that this zeroth-order
+empirical invariant still varies slightly over the slow bounce.
+
+| Moment | Measured value |
+|---|---:|
+| μinst(0) | 0.128979444385718 |
+| Whole-orbit time mean μbar_t (primary) | 0.131802636500773 |
+| Complete-cycle time mean | 0.131803538078508 |
+| Uniform-phase mean | 0.131790326976400 |
+
+The primary relative difference `(μbar_t−μinst(0))/μbar_t` is **2.1419846%**;
+relative to μinst(0) it is **2.1888698%**. These denominators are stated to
+avoid ambiguity in comparing with the professor's approximately 2.1%.
+
+### Trajectory measurements and benchmarks
+
+At every common output time, compute
+`e(t)=norm(X_GC(t)−X_loc(t))` and its maximum over 0…700. Azimuths use the
+same center coordinates, with the same initial position and u for both
+guiding-center integrations.
+
+| Quantity | Measured | Professor's reference |
+|---|---:|---:|
+| Maximum error, initial moment | 1.5051672160 | ≈1.50 |
+| Maximum error, primary time mean | 0.1107410109 | ≈0.11 |
+| Error-reduction factor | 13.5917778 | about 14 |
+| Extracted full-orbit final azimuth | −0.8444578860 | ≈−0.844 |
+| Time-mean GC final azimuth | −0.8393167055 | ≈−0.839 |
+| Initial-moment GC final azimuth | −0.8199262452 | ≈−0.820 |
+
+These reproduce the reference scale and reported precision; the value 1.505
+should not be treated as an exactly matching 1.50. The PDF does not supply
+the original reference code or the precise finite-radius/averaging convention.
+The initial-moment and time-mean RMS position errors are 0.64562056 and
+0.06223653. As a separate coordinate-ripple diagnostic, averaging each
+**position-difference vector** over matched complete gyrocycles gives maximum
+norms of 1.47529127 and 0.10525026. This comparison averages both trajectories
+with the same weights. It is not an instantaneous position error or a comparison
+of a smoothed reference point against a mismatched model time.
+
+| Averaging interval / weight | μbar | Maximum GC error | Final GC azimuth |
+|---|---:|---:|---:|
+| Whole 0…700, uniform time | 0.131802636501 | 0.11074101 | −0.83931671 |
+| Complete cycles, uniform time | 0.131803538079 | 0.11035993 | −0.83932343 |
+| Complete cycles, uniform phase | 0.131790326976 | 0.11595010 | −0.83922487 |
+| First cycle, uniform time | 0.131878364658 | 0.08336535 | −0.83988319 |
+| First four cycles, uniform time | 0.131812968978 | 0.10637762 | −0.83939384 |
+| First eight cycles, uniform time | 0.131792035273 | 0.11522641 | −0.83923761 |
+
+The primary window is fixed by the prescribed full run, not chosen to minimize
+position error. The first-cycle alternative happens to give a smaller maximum
+error and is reported transparently. This sensitivity limits the uniqueness
+of a benchmark such as 0.11 when “gyro-average” is left unspecified.
+
+Gyrophase sensitivity uses rtol=1e−10/atol=1e−12 for additional full runs:
+
+| Initial velocity phase | μinst(0) | Time-mean μ | Max initial-moment error | Max mean-moment error | Improvement |
+|---|---:|---:|---:|---:|---:|
+| +π/2 (principal, tight run) | 0.12897944 | 0.13180264 | 1.505167 | 0.110741 | 13.59 |
+| −π/2 | 0.13332205 | 0.13037862 | 1.533037 | 0.067422 | 22.74 |
+| 0 | 0.13107871 | 0.13109415 | 0.016733 | 0.016503 | 1.014 |
+| π | 0.13107871 | 0.13108661 | 0.030052 | 0.026143 | 1.150 |
+
+The large improvement occurs when the initial instantaneous moment is far
+from the orbit mean. For other phases it is already close, so a factor 14
+is not universal. These launches fix the local first-order center and local
+speeds; they do not fix an exact transformed action or all higher-order
+initial-coordinate corrections across phases. The empirical mean can therefore
+differ between physical launches. All phase-specific parameters and azimuths
+are recorded in JSON.
+
+### Literal test of Equation (4) and its residual
+
+Use the primary measured μbar_t without fitting it. The plotted quantities are
+
+\[
+f(t)=\mu_{inst}(\mathbf x)/\bar\mu_t-1,\qquad
+g(t)=-\frac{\boldsymbol\rho\cdot\nabla B(\mathbf X_{loc})}{B(\mathbf X_{loc})}.
+\]
+
+Evaluating B and its gradient at X_loc is consistent with the Taylor expansion
+`B(x)=B(X)+ρ·∇B(X)+…`. The particle-based choice is separately recorded as
+a sensitivity diagnostic; it changes the RHS by RMS 2.41242e−3, so positions
+must be stated explicitly. It is not substituted for the stated convention.
+
+| Equation (4) diagnostic | Measured value |
+|---|---:|
+| Pearson correlation, uniform output times | 0.9956252631 |
+| Free slope in f=a g+c | 1.206237028 |
+| Intercept c | 2.33805374e−4 |
+| Peak-to-peak f / peak-to-peak g | 0.0436901390 / 0.0330482847 |
+| RMS(f−g) | 2.01107624e−3 |
+| Maximum absolute residual | 5.42885002e−3 |
+| First-harmonic amplitude ratio | 1.17319544 |
+| First-harmonic phase difference | 8.74462683e−4 rad (≈0.0501 degrees) |
+
+First-harmonic coefficients use uniform ψ samples over complete cycles,
+whereas correlation and regression use uniform time samples over the whole
+run. The varying envelope and different weights explain why their amplitude
+ratios are not identical. The curves agree closely in phase but **Equation (4)
+as written does not reproduce the complete measured amplitude** in this
+off-axis, nonzero-u orbit. This is much larger than the numerical convergence
+change and should not be presented as exact equality or solely solver error.
+
+An exact chain-rule identity for the full Lorentz orbit provides an independent
+diagnostic, checked by numerical directional differentiation in the tests:
+
+\[
+\dot\mu=-\frac{mu}{B}\,\mathbf v\cdot[(\mathbf v\cdot\nabla)\mathbf b]
+         -\frac\mu B\mathbf v\cdot\nabla B.
+\]
+
+The first term includes parallel-projection and curvature effects, in addition
+to the spatial-strength variation retained by the simple Taylor correction.
+The separately plotted projection
+`C=−m u² ρ·κ(X_loc)/[μbar_t B(X_loc)]` tracks much of the observed residual.
+Subtracting C reduces its RMS to **3.84158406e−4**, but C is a diagnostic,
+not a fitted rescaling or a replacement Equation (4). An auxiliary u0=0,
+t=80 full-orbit control gives a slope of 1.00447251 and residual RMS
+1.43403075e−4. Together these calculations support parallel-motion/curvature
+contributions to the primary mismatch. The remaining residual includes finite
+coordinate, averaging, and higher-order effects; a complete transformed
+invariant and generator derivation are outside this implementation.
+
+### Conservation, convergence, tests, and reproducibility
+
+| Relative tolerance | Max relative full K error | GC H error, initial μ | GC H error, mean μ | Max error, initial μ | Max error, mean μ |
+|---|---:|---:|---:|---:|---:|
+| 1e−8 | 4.6239e−7 | 6.7062e−9 | 9.4326e−9 | 1.505153941 | 0.110740815 |
+| 1e−10 | 2.7711e−9 | 7.7778e−11 | 7.8954e−11 | 1.505167140 | 0.110741008 |
+| 1e−12 | 1.8091e−11 | 8.1424e−13 | 7.8815e−13 | 1.505167216 | 0.110741011 |
+
+Last-two-tolerance maximum componentwise full-state change is 7.98099e−8;
+the largest extracted-center displacement change is 7.83110e−8. The initial-μ
+and mean-μ reduced-state changes are 1.10824e−9 and 8.12794e−8, respectively;
+the latter also includes recalibration of μbar from the independently rerun
+full orbit. Mean μ changes by 1.60190e−10; maximum errors change by 7.63139e−8
+and 2.37599e−9. The final full-center azimuth changes by 1.23124e−9 rad.
+
+Reevaluating the tight dense solution at output spacing 0.01 instead of 0.02
+changes the time-mean moment by only 1.17e−15. This tests observation-grid and
+quadrature resolution independently of the adaptive integration tolerances.
+The physical model discrepancy (0.11 or 1.5) and Equation (4) residual are
+well separated from integration and sampling changes. Numerical differences
+between tolerances remain empirical estimates, not rigorous global bounds.
+
+Seven new tests in `validate_task_4.py` check analytical geometry against
+finite differences, the exact initial center and speed components for four
+phases, an exact midplane circular GC orbit, the initial curvature drift,
+independently known time-versus-phase averages, the exact μ chain rule, and
+saved scientific data/figure consistency. The existing validation scripts for
+Tasks 1–2 and Tasks 3–5 are also run unchanged.
+
+```powershell
+python Simulations/04_guiding_center.py
+python Simulations/validate_task_4.py
+python Simulations/validate.py
+python Simulations/validate_tasks_3_5.py
+```
+
+For figure formatting without repeating the numerical integrations:
+
+```powershell
+python Simulations/04_guiding_center.py --plots-only
+```
+
+This reads saved numerical CSV/JSON data and redraws the figures. The default
+command performs all integrations, calibration, sensitivity experiments, and
+assertions. It does not require the course PDF at runtime.
+
+### Task 4 outputs and figure captions
+
+Numerical files in `results/`:
+
+- `task4_summary.json`: all parameters, moment definitions, three tolerance
+  runs, geometry-based correction metrics, gyrophase and averaging studies,
+  the zero-parallel-speed control, and package versions.
+- `task4_orbit.csv`: tight full state, extracted center, local u/B/μ/K,
+  gyrophase, phase progress, gyroradius magnitude, and displacement vector.
+- `task4_guiding_centers.csv`: all three center trajectories, both reduced
+  parallel speeds, pointwise errors, and all three azimuths.
+- `task4_moment_correction.csv`: literal Equation (4) curves, residual, and
+  the separate curvature diagnostic.
+- `task4_gyrocycle_means.csv`: cycle boundaries and both time/phase means.
+- `task4_convergence.csv`: all tolerance comparisons.
+- `task4_sensitivities.csv`: named averaging conventions with measured μ,
+  maximum errors, and final azimuths.
+
+All following stems have vector PDF and 350-DPI PNG outputs:
+
+| Figure stem | Scientific caption |
+|---|---|
+| `task4_full_orbit_and_center` | Off-axis full particle orbit, its extracted local center, and both first-order GC trajectories. Fast physical gyration surrounds the slow bounce and azimuthal drift; it is excluded from the position-error reference. The particle curve is subsampled by five for display. |
+| `task4_center_coordinates` | Radius, axial position, and unwrapped azimuth of the extracted center and both reduced trajectories. The initial-moment choice accumulates a larger bounce-phase error. |
+| `task4_position_errors` | Euclidean center-position errors for both moment choices, with a separate panel resolving the smaller mean-moment error. The remaining ripple includes the finite order of center reconstruction. |
+| `task4_azimuth` | Azimuthal drift under the three center definitions. Final values reproduce the professor's rounded reference angles with the documented initialization and time-average convention. |
+| `task4_magnetic_moment` | Instantaneous moment over the first 45 time units, compared with the initial and whole-orbit mean moments; complete-cycle time and phase means over 700 show small slow variation. |
+| `task4_moment_correction` | Literal Equation (4) compared over the first 45 time units. Additional panels resolve its residual, the curvature projection diagnostic, and the remaining difference. Their phases agree more closely than their amplitudes. |
+| `task4_convergence` | Full and reduced conserved-energy errors versus tolerance, together with convergence of the maximum position-error measurements relative to the tightest run. |
+| `task4_energy` | Relative kinetic-energy error along the full tight orbit. The magnitude is many orders below the model-position and magnetic-moment-correction discrepancies. |
+
+OpenAI Codex assisted in writing, debugging, executing, validating, and
+documenting Task 4. All numerical results above were measured from executed
+code. No instructor-only document, reference-run code, or copyrighted textbook
+was added to the repository. The Task 4 feature branch is intended for
+independent scientific review before any merge.
