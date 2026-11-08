@@ -1,4 +1,6 @@
 """Task 4: full Lorentz orbit versus the specified first-order guiding center."""
+# Final review: Task 4 guiding-center simulations and numerical validation.
+# Physics equations, initial conditions and solver
 import csv
 import numpy as np
 from scipy.integrate import solve_ivp
